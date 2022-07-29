@@ -1,6 +1,6 @@
 # Single page Website
 
-This single page responsive website width cross-browser compatibility.
+This single page responsive website with cross-browser compatibility.
 
 ## Technical details
 
