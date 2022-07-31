@@ -5,6 +5,8 @@ import cleanCss from "gulp-clean-css";
 import webpcss from "gulp-webpcss";
 import autoprefixer from "gulp-autoprefixer";
 import groupCssMediaQueries from "gulp-group-css-media-queries";
+import postcssImport from "postcss-import";
+import postcss from "gulp-postcss";
 
 const sass = gulpSass(dartSass);
 
@@ -20,6 +22,7 @@ export const scss = () => {
     .pipe(sass({
         outputStyle: 'expanded'
     }))
+    .pipe(postcss([postcssImport()]))
     .pipe(app.plugins.if(
         app.isBuild,
         groupCssMediaQueries()))

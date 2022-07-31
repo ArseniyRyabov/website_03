@@ -1,10 +1,11 @@
 # Single page Website
 
-This single page responsive website with cross-browser compatibility.
+This single page adaptive website with cross-browser compatibility.
 
 ## Technical details
 
 - Package manager: [NPM]
+- HTML preprocessor: [Pug]
 - CSS preprocessor: [SCSS]
 - Javascript transpiler: [Babel]
 - Backend: [-]

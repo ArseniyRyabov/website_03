@@ -1,0 +1,52 @@
+.header{
+  background-color: #1c242a;
+  &__container{}
+  &__logo{}
+  &__menu{}
+  &__actions{}
+}
+.menu{
+  &__icon{}
+  &__body{}
+  &__list{}
+  &__link{}
+}
+.icon__menu{
+  z-index: 5;
+  display: none;
+  position: absolute;
+  top: 18px;
+  right: 10px;
+  width: 30px;
+  height: 18px;
+  cursor: pointer;
+  span{
+    @include amin(0.3s, 0s);
+    top: (-50% 1px);
+    left: 0px;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    &:first-child{
+      top: 0px;
+    }
+    &:last-child{
+      top: auto;
+    }
+  }
+}
+.actions-header{
+  &__region{}
+  &__user{}
+}
+.user-header{
+  &__icon{}
+  &__menu{}
+  &__link{
+    &_1{}
+    &_2{}
+    &_3{}
+    &_4{}
+  }
+}

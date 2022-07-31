@@ -1,7 +1,7 @@
 import fileInclude from "gulp-file-include";
 import webpHtmlNosvg from "gulp-webp-html-nosvg";
 import versionNumber from "gulp-version-number";
-//import pug from "gulp-pug";
+import pug from "gulp-pug";
 
 export const html = () => {
     return app.gulp.src(app.path.src.html)
@@ -11,12 +11,12 @@ export const html = () => {
             message: "Error: <%= error.message %>"
         })
     ))
-    .pipe(fileInclude())
     //.pipe(fileInclude())
-    /*.pipe(pug({
+    //.pipe(fileInclude())
+    .pipe(pug({
         pretty: true,
         verbose: true
-    }))*/
+    }))
     .pipe(app.plugins.replace(/@img\//g, 'img/'))
     .pipe(app.plugins.if(
         app.isBuild,

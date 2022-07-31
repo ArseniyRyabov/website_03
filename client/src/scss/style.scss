@@ -69,7 +69,8 @@
 
 /*Fonts*/
 @import "fonts.scss";
-$fontfamily: '';
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:regular,italic,700,);
+$fontfamily: 'PT Sans';
 
 /*variables*/
 $minwidth: 320px;
@@ -80,7 +81,7 @@ $md3: 767.98px;
 $md4: 479.98px;
 
 /*Reset*/
-@import "normalize.scss";
+@import 'normalize.css';
 *{padding: 0;margin: 0;border: 0;}
 *,*:before,*:after{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
 :focus,:active{outline: none;}
@@ -91,34 +92,46 @@ input,button,textarea{font-family:inherit;}
 input::-ms-clear{display: none;}
 button{cursor: pointer;}
 button::-moz-focus-inner {padding:0;border:0;}
-a,a:visited{text-decoration: none;}
-a:hover{text-decoration: none;}
 ul li{list-style: none;}
 img{vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
-
+a:active,a:hover,a:visited,a{text-decoration: none;color: #000;}
 body{
+  font-family: $fontfamily;
   color: #000;
   font-size: 14px;
     &._lock{
       overflow: hidden;
       @media(max-width: $md3){
-
       }
   }
 }
 
 /*Styles*/
-.wrapper{width: 100%;min-height: 100%;overflow: hidden;display: flex;flex-direction: column;&.loaded{}}
-
-._container{max-width:$mw+px;margin: 0 auto;width: 100%;
-  /*@media (max-width:$md1+px){max-width: 960px;}*/
-  @media (max-width:$md1) {max-width: 750px;}
-  @media (max-width:$md2){max-width: none;padding: 0 10px;}
+.wrapper{
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  &.loaded{}
+}
+._container{
+  max-width: $mw;
+  margin: 0 auto;
+  @media (max-width:$md1) {
+    max-width: 970px;
+  }
+  @media (max-width:$md2) {
+    max-width: 750px;
+  }
+  @media (max-width:$md3){
+    max-width: none;
+    padding: 0 10px;
+  }
 }
 
-
-
+/*import*/
 @import 'header.scss';
 @import 'footer.scss';
 @import 'home.scss';
