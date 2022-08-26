@@ -8,16 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=0">
     <link rel="icon" href="./img/favicon.png">
     <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/app.min.js"></script>
   </head>
   <body>
     <div class="wrapper">
       <header class="header">
-        <div class="header__container _container"><a class="header__logo" href="#"><img src="img/logo.png"></a>
+        <div class="header__container _container">
+          <div class="icon__menu"><span></span><span></span><span></span></div><a class="header__logo" href="#"><img src="img/logo.png"></a>
           <div class="header__menu menu">
-            <div class="menu__icon icon-menu"><span></span><span></span><span></span></div>
             <nav class="menu__body">
-              <ul class="menu-list">
+              <ul class="menu__list">
                 <li><a class="menu__link" href="#">Home</a></li>
                 <li><a class="menu__link" href="#">Auction</a></li>
                 <li><a class="menu__link" href="#">About the Project</a></li>
@@ -26,17 +25,21 @@
               </ul>
             </nav>
           </div>
-          <div class="header__actions actions-header"><a class="actions-header__region" href="#">Choosing a Region</a>
+          <div class="header__actions actions-header"><a class="actions-header__region" href="#"><span>Choosing a Region</span></a>
             <div class="actions-header__user user-header">
               <div class="user-header__icon"><img src="img/icons/user.png"></div>
               <ul class="user-header__menu">
-                <li><a class="user-header__link user-header__link_1" href="#">Choosing a Region</a><a class="user-header__link user-header__link_2" href="#">Personal account</a><a class="user-header__link user-header__link_3" href="#">My bets</a><a class="user-header__link user-header__link_4" href="#">My lots</a></li>
+                <li><a class="user-header__link user-header__link_1" href="#">Choosing a Region</a></li>
+                <li><a class="user-header__link user-header__link_2" href="#">Personal account</a></li>
+                <li><a class="user-header__link user-header__link_3" href="#">My bets</a></li>
+                <li><a class="user-header__link user-header__link_4" href="#">My lots</a></li>
               </ul>
             </div>
           </div>
         </div>
       </header>
       <main class="page"></main>
+      <script src="./js/app.min.js"></script>
     </div>
   </body>
 </html>

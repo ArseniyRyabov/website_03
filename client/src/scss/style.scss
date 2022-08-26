@@ -1,4 +1,4 @@
-@mixin amin($time, $delay){
+@mixin anim($time, $delay){
   -moz-transition: all $time ease $delay;
   -webkit-transition: all $time ease $delay;
   -ms-transition: all $time ease $delay;
@@ -74,7 +74,7 @@ $fontfamily: 'PT Sans';
 
 /*variables*/
 $minwidth: 320px;
-$mw: 950px;
+$mw: 970px;
 $md1: $mw + 12px;
 $md2: 991.98px;
 $md3: 767.98px;
@@ -95,10 +95,10 @@ button::-moz-focus-inner {padding:0;border:0;}
 ul li{list-style: none;}
 img{vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
-a:active,a:hover,a:visited,a{text-decoration: none;color: #000;}
+a:active,a:hover,a:visited,a{text-decoration: none;/*color: #000;*/}
 body{
   font-family: $fontfamily;
-  color: #000;
+  //color: #000;
   font-size: 14px;
     &._lock{
       overflow: hidden;
@@ -119,16 +119,7 @@ body{
 ._container{
   max-width: $mw;
   margin: 0 auto;
-  @media (max-width:$md1) {
-    max-width: 970px;
-  }
-  @media (max-width:$md2) {
-    max-width: 750px;
-  }
-  @media (max-width:$md3){
-    max-width: none;
-    padding: 0 10px;
-  }
+  padding: 0 10px;
 }
 
 /*import*/

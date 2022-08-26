@@ -1,27 +1,31 @@
 header.header
   .header__container._container
+    .icon__menu
+      span
+      span
+      span
     a(class='header__logo' href="#")
       img(src="img/logo.png")
     .header__menu.menu
-      .menu__icon.icon-menu
-        span
-        span
-        span
       nav.menu__body
-        ul(class='menu-list')
+        ul(class='menu__list')
           li: a(class='menu__link' href="#") Home
           li: a(class='menu__link' href="#") Auction
           li: a(class='menu__link' href="#") About the Project
           li: a(class='menu__link' href="#") Partners
           li: a(class='menu__link' href="#") Contacts
     .header__actions.actions-header
-      a(class='actions-header__region' href="#") Choosing a Region
+      a.actions-header__region(href='#')
+        span Choosing a Region
       .actions-header__user.user-header
         .user-header__icon
           img(src='img/icons/user.png')
         ul(class='user-header__menu')
           li
             a(class='user-header__link user-header__link_1' href="#") Choosing a Region
+          li
             a(class='user-header__link user-header__link_2' href="#") Personal account
+          li
             a(class='user-header__link user-header__link_3' href="#") My bets
+          li
             a(class='user-header__link user-header__link_4' href="#") My lots
