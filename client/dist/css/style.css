@@ -397,6 +397,8 @@ body._lock {
   }
 }
 .header__logo {
+  position: relative;
+  z-index: 2;
   width: 144px;
 }
 @media (max-width: 767.98px) {
@@ -416,23 +418,33 @@ body._lock {
     flex: 0 0 auto;
   }
 }
-.menu__body {
-  background-color: rgba(28, 36, 42, 0.8);
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-}
-.menu__body:after {
-  content: "";
-  display: none;
-  background-color: #1c242a;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 75px;
+@media (max-width: 767.98px) {
+  .menu__body {
+    background-color: rgba(28, 36, 42, 0.8);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    overflow: auto;
+    padding: 100px 0px 20px 0px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease 0s;
+  }
+  .menu__body:after {
+    content: "";
+    background-color: #1c242a;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+  }
+  .menu__body._active {
+    opacity: 1;
+    visibility: visible;
+  }
 }
 .menu__list {
   display: flex;
@@ -440,6 +452,18 @@ body._lock {
 }
 .menu__list li {
   margin: 0px 15px;
+}
+@media (max-width: 767.98px) {
+  .menu__list {
+    display: block;
+    text-align: center;
+  }
+  .menu__list li {
+    margin: 0px 0px 30px 0px;
+  }
+  .menu__list li:last-child {
+    margin: 0px 0px 0px 0px;
+  }
 }
 .menu__link, .actions-header__region {
   font-family: "PFDin";
@@ -453,14 +477,20 @@ body._lock {
   }
 }
 @media (max-width: 767.98px) {
-  .icon__menu {
+  .menu__link, .actions-header__region {
+    font-size: 24px;
+  }
+}
+@media (max-width: 767.98px) {
+  .icon-menu {
+    -webkit-tap-highlight-color: transparent;
     position: relative;
     width: 30px;
     height: 18px;
     cursor: pointer;
     z-index: 5;
   }
-  .icon__menu span {
+  .icon-menu span {
     -moz-transition: all 0.3s ease 0s;
     -webkit-transition: all 0.3s ease 0s;
     -ms-transition: all 0.3s ease 0s;
@@ -471,23 +501,23 @@ body._lock {
     position: absolute;
     width: 100%;
     height: 2px;
-    background-color: #fff;
+    background-color: #bb9c66;
   }
-  .icon__menu span:first-child {
+  .icon-menu span:first-child {
     top: 0px;
   }
-  .icon__menu span:last-child {
+  .icon-menu span:last-child {
     top: auto;
     bottom: 0px;
   }
-  .icon__menu._active span {
+  .icon-menu._active span {
     -moz-transform: scale(0);
     -webkit-transform: scale(0);
     -ms-transform: scale(0);
     -o-transform: scale(0);
     transform: scale(0);
   }
-  .icon__menu._active span:first-child {
+  .icon-menu._active span:first-child {
     -moz-transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
@@ -495,7 +525,7 @@ body._lock {
     transform: rotate(-45deg);
     top: calc(50% - 1px);
   }
-  .icon__menu._active span:last-child {
+  .icon-menu._active span:last-child {
     -moz-transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
@@ -509,6 +539,8 @@ body._lock {
   align-items: center;
 }
 .actions-header__region {
+  position: relative;
+  z-index: 2;
   padding: 0px 0px 0px 30px;
   line-height: 18px;
   min-width: 18px;
@@ -533,6 +565,8 @@ body._lock {
 }
 .user-header__icon {
   cursor: pointer;
+  position: relative;
+  z-index: 2;
 }
 .user-header__menu {
   opacity: 0;
@@ -543,12 +577,18 @@ body._lock {
   position: absolute;
   background: #1c242a;
   padding: 20px;
+  min-width: 176px;
 }
 .user-header__menu li {
   margin: 0px 0px 8px 0px;
 }
 .user-header__menu li:last-child {
   margin: 0px 0px 0px 0px;
+}
+@media (max-width: 767.98px) {
+  .user-header__menu {
+    width: 100%;
+  }
 }
 .user-header__menu._active {
   top: 78px;
