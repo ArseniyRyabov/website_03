@@ -427,10 +427,11 @@ body._lock {
     left: 0;
     top: 0;
     overflow: auto;
-    padding: 100px 0px 20px 0px;
+    padding: 130px 0px 20px 0px;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease 0s;
+    text-align: center;
   }
   .menu__body:after {
     content: "";
@@ -456,7 +457,6 @@ body._lock {
 @media (max-width: 767.98px) {
   .menu__list {
     display: block;
-    text-align: center;
   }
   .menu__list li {
     margin: 0px 0px 30px 0px;
@@ -555,6 +555,16 @@ body._lock {
     display: none;
   }
 }
+@media (max-width: 767.98px) {
+  .actions-header__region {
+    margin: 30px 0px 0px 0px;
+    display: inline-block;
+    padding: 0px 0px 0px 30px;
+  }
+  .actions-header__region span {
+    display: inline-block;
+  }
+}
 .actions-header__user {
   margin: 0px 0px 0px 30px;
 }
@@ -605,13 +615,13 @@ body._lock {
   background: url("../img/icons/globe.png") left center no-repeat;
 }
 .user-header__link_2 {
-  background: url("../img/icons/globe.png") left center no-repeat;
+  background: url("../img/icons/key.png") left center no-repeat;
 }
 .user-header__link_3 {
-  background: url("../img/icons/globe.png") left center no-repeat;
+  background: url("../img/icons/palm.png") left center no-repeat;
 }
 .user-header__link_4 {
-  background: url("../img/icons/globe.png") left center no-repeat;
+  background: url("../img/icons/hammer.png") left center no-repeat;
 }
 @media (min-width: 992px) {
   .user-header__link:hover {

@@ -39,10 +39,11 @@
       left: 0;
       top: 0;
       overflow: auto;
-      padding: 100px 0px 20px 0px;
+      padding: 130px 0px 20px 0px;
       opacity: 0;
       visibility: hidden;
       transition: all 0.3s ease 0s;
+      text-align: center;
       &:after{
         content: "";
         background-color: #1c242a;
@@ -64,7 +65,7 @@
     li{margin: 0px 15px;}
     @media(max-width: $md3){
       display: block;
-      text-align: center;
+      
       li{
         margin: 0px 0px 30px 0px;
         &:last-child{
@@ -140,6 +141,8 @@
       }
     }
     @media(max-width: $md3){
+      margin: 30px 0px 0px 0px;
+      display: inline-block;
       padding: 0px 0px 0px 30px;
      span{
         display: inline-block;
@@ -193,13 +196,13 @@
       background: url("../img/icons/globe.png") left center no-repeat;
     }
     &_2{
-      background: url("../img/icons/globe.png") left center no-repeat;
+      background: url("../img/icons/key.png") left center no-repeat;
     }
     &_3{
-      background: url("../img/icons/globe.png") left center no-repeat;
+      background: url("../img/icons/palm.png") left center no-repeat;
     }
     &_4{
-      background: url("../img/icons/globe.png") left center no-repeat;
+      background: url("../img/icons/hammer.png") left center no-repeat;
     }
     @media(min-width: 992px){
       &:hover{

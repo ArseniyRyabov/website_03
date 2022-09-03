@@ -78,125 +78,125 @@ document.documentElement.addEventListener("click", function(e){
     }
 });
 
-/*Dynamic adaptive-2*/
-(function(){
-    let original_positions = [];
-    let da_elements = document.querySelectorAll('[data-da]');
-    let da_elements_array = [];
-    let da_match_media = [];
-    //filling in arrays
-    if(da_elements.length > 0){
-        let number = 0;
-        for(let index = 0; index < da_elements.length; index++){
-            const da_element = da_elements[index];
-            const da_move = da_element.getAttribute('data_da');
-            const da_array = da_move.split(',');
-            if(da_array.length === 3){
-                da_element.setAttribute('data_da_index', number);
-                //filling in the array of initial positions
-                original_positions[number] = {
-                    "parent": da_element.parentNode,
-                    "index": index_in_parent(da_element)
-                };
-                //filling in the array of elements
-                da_elements_array[number] = {
-                    "element": da_element,
-                    "destination": document.querySelector('.' + da_array[0].trim()),
-                    "place": da_array[1].trim()
-                }
-                number++;
-            }
-        }
-        dynamic_adapt_sort(da_elements_array);
-        //creating events at the breakpoint
-        for (let index = 0; index < da_elements_array.length; index++){
-            const el = da_elements_array[index];
-            const da_breakpoint = el.breakpoint;
-            const da_type = "max"; //for MobileFirst change to "min"
-            da_match_media.push(window.matchMedia("(" + da_type + "-width: " + da_breakpoint + "px)"));
-            da_match_media[index].addListener(dynamic_adapt);
-        }
+/*change the order of elements*/
+class DynamicAdapt {
+    constructor(type) {
+      this.type = type;
     }
-    //main function
-    function dynamic_adapt(e){
-        for (let index = 0; index < da_elements_array.length; index++){
-            const el = da_elements_array[index];
-            const da_element = el.element;
-            const da_destination = el.destination;
-            const da_place = el.place;
-            const da_breakpoint = el.breakpoint;
-            const da_classname = "_dynamic_adapt_" + da_breakpoint;
-            if(da_match_media[index].matches){
-                //moving the elements
-                if(!da_element.classList.contains(da_classname)){
-                    let actual_index;
-                    if(da_place == 'first'){
-                        actual_index = index_of_elements(da_destination)[0];
-                    }else if(da_place == 'last'){
-                        actual_index = index_of_elements(da_destination)[index_of_elements(da_destination).length];
-                    }else{
-                        actual_index = index_of_elements(da_destination)[da_place]
-                    }
-                    da_destination.insertBefore(da_element, da_destination.children[actual_index]);
-                    da_element.classList.add(da_classname);
-                }
-            }else{
-                //returned to the place
-                if(da_element.classList.contains(da_classname)){
-                    dynamic_adapt_back(da_element);
-                    da_element.classList.remove(da_classname);
-                }
-            }
-        }
-        custom_adapt();
-    }
-    //calling the main function
-    dynamic_adapt();
-    //return to place function
-    function dynamic_adapt_back(el){
-        const da_index = el.getAttribute('data_da_index');
-        const original_place = original_positions[da_index];
-        const parent_place = original_place['parent'];
-        const index_place = original_place['index'];
-        const actual_index = index_of_elements(parent_place, true)[index_place];
-        parent_place.insertBefore(el, parent_place.children[actual_index]);
-    }
-    //the function of getting the index inside the parent
-    function index_in_parent(el){
-        var children = Array.prototype.slice.call(el.parentNode.children);
-        return children.indexOf(el);
-    }
-    //function for getting an array of indexes of elements inside the parent
-    function index_of_elements(parent, back){
-        const children = parent.children;
-        const children_array = [];
-        for(let i = 0; i < children.length; i++){
-            const children_element = children[i];
-            if(back){
-                children_array.push(i);
-            }else{
-                //excluding the transferred element
-                if(children_element.getAttribute('data_da') == null){
-                    children_array.push(i);
-                }
-            }
-        }
-        return children_array;
-    }
-    //sorting an object
-    function dynamic_adapt_sort(arr){
-        arr.sort(function(a, b){
-            if(a.breakpoint > b.breakpoint) {return -1} else {return 1}
-            //for MobileFirst change
+    init() {
+      this.оbjects = [];
+      this.daClassname = '_dynamic_adapt_';
+      this.nodes = [...document.querySelectorAll('[data-da]')];
+      this.nodes.forEach((node) => {
+        const data = node.dataset.da.trim();
+        const dataArray = data.split(',');
+        const оbject = {};
+        оbject.element = node;
+        оbject.parent = node.parentNode;
+        оbject.destination = document.querySelector(`${dataArray[0].trim()}`);
+        оbject.breakpoint = dataArray[1] ? dataArray[1].trim() : '767';
+        оbject.place = dataArray[2] ? dataArray[2].trim() : 'last';
+        оbject.index = this.indexInParent(оbject.parent, оbject.element);
+        this.оbjects.push(оbject);
+      });
+      this.arraySort(this.оbjects);
+      this.mediaQueries = this.оbjects
+        .map(({
+          breakpoint
+        }) => `(${this.type}-width: ${breakpoint}px),${breakpoint}`)
+        .filter((item, index, self) => self.indexOf(item) === index);
+      this.mediaQueries.forEach((media) => {
+        const mediaSplit = media.split(',');
+        const matchMedia = window.matchMedia(mediaSplit[0]);
+        const mediaBreakpoint = mediaSplit[1];
+        const оbjectsFilter = this.оbjects.filter(
+          ({
+            breakpoint
+          }) => breakpoint === mediaBreakpoint
+        );
+        matchMedia.addEventListener('change', () => {
+          this.mediaHandler(matchMedia, оbjectsFilter);
         });
-        arr.sort(function(a, b){
-            if(a.place > b.place) {return 1} else {return -1}
+        this.mediaHandler(matchMedia, оbjectsFilter);
+      });
+    }
+    mediaHandler(matchMedia, оbjects) {
+      if (matchMedia.matches) {
+        оbjects.forEach((оbject) => {
+          this.moveTo(оbject.place, оbject.element, оbject.destination);
         });
+      } else {
+        оbjects.forEach(
+          ({ parent, element, index }) => {
+            if (element.classList.contains(this.daClassname)) {
+              this.moveBack(parent, element, index);
+            }
+          }
+        );
+      }
     }
-    //additional adaptation scenarios
-    function custom_adapt(){
-        const viewport_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    moveTo(place, element, destination) {
+      element.classList.add(this.daClassname);
+      if (place === 'last' || place >= destination.children.length) {
+        destination.append(element);
+        return;
+      }
+      if (place === 'first') {
+        destination.prepend(element);
+        return;
+      }
+      destination.children[place].before(element);
     }
-    // listening to the screen size change
-    window.addEventListener("resize", function(event){})
-})
+    moveBack(parent, element, index) {
+      element.classList.remove(this.daClassname);
+      if (parent.children[index] !== undefined) {
+        parent.children[index].before(element);
+      } else {
+        parent.append(element);
+      }
+    }
+    indexInParent(parent, element) {
+      return [...parent.children].indexOf(element);
+    }
+    arraySort(arr) {
+      if (this.type === 'min') {
+        arr.sort((a, b) => {
+          if (a.breakpoint === b.breakpoint) {
+            if (a.place === b.place) {
+              return 0;
+            }
+            if (a.place === 'first' || b.place === 'last') {
+              return -1;
+            }
+            if (a.place === 'last' || b.place === 'first') {
+              return 1;
+            }
+            return 0;
+          }
+          return a.breakpoint - b.breakpoint;
+        });
+      } else {
+        arr.sort((a, b) => {
+          if (a.breakpoint === b.breakpoint) {
+            if (a.place === b.place) {
+              return 0;
+            }
+            if (a.place === 'first' || b.place === 'last') {
+              return 1;
+            }
+            if (a.place === 'last' || b.place === 'first') {
+              return -1;
+            }
+            return 0;
+          }
+          return b.breakpoint - a.breakpoint;
+        });
+        return;
+      }
+    }
+  }
+
+  //call and settings change the order of elements
+  //max - Desktop First, min - Mobile First.
+  const da = new DynamicAdapt("max");
+  da.init();
