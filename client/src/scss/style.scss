@@ -1,3 +1,6 @@
+@use "sass:math";
+
+@import "mixins.scss";
 @mixin anim($time, $delay){
   -moz-transition: all $time ease $delay;
   -webkit-transition: all $time ease $delay;
@@ -95,17 +98,22 @@ button::-moz-focus-inner {padding:0;border:0;}
 ul li{list-style: none;}
 img{vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
-a:active,a:hover,a:visited,a{text-decoration: none;/*color: #000;*/}
+a:active,a:hover,a:visited,a{text-decoration: none;}
+a{-webkit-tap-highlight-color: transparent;}
+//@import "swiper-bundle.min.css";
+@import "swiper.scss";
 body{
   font-family: $fontfamily;
-  //color: #000;
   font-size: 14px;
     &._lock{
       overflow: hidden;
       @media(max-width: $md3){
       }
-  }
+    }
 }
+
+/*default font*/
+$fontfamily: "PT Sans";
 
 /*Styles*/
 .wrapper{
@@ -122,6 +130,23 @@ body{
   padding: 0 10px;
 }
 
+/*adaptive img*/
+._ibg{
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+._ibg img{
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
 /*import*/
 @import 'header.scss';
 @import 'footer.scss';
@@ -130,3 +155,193 @@ body{
 .page{
   flex: 1 1 auto;
 }
+
+/*main*/
+.main-slider{
+  position: relative;
+  .swiper-wrapper{
+    //align-items: flex-start;
+    align-items: stretch;
+    @media(max-width: $md3){
+      //align-items: flex-start;
+    }
+  }
+  &__body{}
+  &__item{}
+  &__control{
+    position: absolute;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    bottom: 0px;
+    transform: translate(-50%, 50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:after{
+      content: "";
+      background-color: #fff;
+      position: absolute;
+      width: 70%;
+      height: 70%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  
+  }
+}
+.item-main-slider{
+  padding: 30px 0px 100px 0px;
+  text-align: center;
+  position: relative;
+  
+  &__content{
+    position: relative;
+    z-index: 2;
+  }
+  &__container{}
+  &__bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  &__text{
+    max-width: 700px;
+    margin: 25px auto 0px auto;
+    color: #fff;
+    font-size: 15px;
+    line-height: calc(25/15);
+  }
+  &__btn{
+    margin: 55px 0px 0px 0px;
+    //bottom: 30px;
+  }
+}
+.control-main-slider{
+  &__arrow{
+    position: relative;
+    z-index: 2;
+    background: url("../img/icons/arr_1.png") 0 0 no-repeat;
+    width: 14px;
+    height: 24px;
+    cursor: pointer;
+    &_prev{}
+    &_next{
+      transform: rotate(-180deg);
+    }
+  }
+  &__decor{
+    position: relative;
+    z-index: 2;
+    margin: 0px 12px;
+    animation: rotate 5s infinite linear;
+  }
+}
+@keyframes rotate{
+  0%{}
+  100%{
+    transform: rotate(360deg);
+  }
+}
+.btn{
+  display: inline-block;
+  padding: 0px 0px;
+  position: relative;
+  &:before,&:after{
+    position: absolute;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    content: "";
+  }
+  &:before{
+    top: 0;
+    background-color: #c3a774;
+  }
+  &:after{
+    bottom: 0;
+    background-color: #8f6630;
+  }
+  &__body{
+    &:before,&:after{
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 3px;
+      content: "";
+      background-image: linear-gradient(to top, #8f6630, #c3a774);
+    }
+    &:before{
+      left: 0;
+    }
+    &:after{
+      right: 0;
+    }
+    span{
+      min-height: 50px;
+      color: #fff;
+      font-size: 15px;
+      font-family: 'PFDin';
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      justify-content: center;
+      align-items: center;
+      display: inline-flex;
+      padding: 0px 50px;
+      position: relative;
+      &:after{
+        content: "";
+        height: 50%;
+        transition: all 0.5s ease 0s;
+        opacity: 0.06;
+        background-image: linear-gradient(to top, #bb9c66 0%, rgba(187, 156, 102, 0) 100%);
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+      }
+    }
+  }
+  @media(min-width: 992px){
+    &:hover{
+      .btn__body span{
+        &:after{
+          opacity: 0.3;
+          height: 100%;
+        }
+      }
+    }
+  }
+  &._fw{
+    width: 100%;
+  }
+}
+.title{
+  &__item{
+    font-family: "ceremonious";
+    color: #bb9c66;
+    font-size: 40px;
+    margin: 0px 0px calc(20px/40px)*1em 0px;
+  }
+  &__main{
+    font-family: "PFDin";
+    letter-spacing: 5.25px;
+    font-size: 35px;
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: calc(40/35);
+    &_regular{
+      font-weight: 400;
+    }
+    &_w{
+      color: #fff;
+    }
+    @media(max-width: $md3){
+      font-size: 30px;
+    }
+  }
+}
+

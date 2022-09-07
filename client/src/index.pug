@@ -12,5 +12,36 @@ html(lang="en")
     .wrapper
       include html/header.pug
       main.page
+        .main-slider.swiper
+          .main-slider__body.swiper-wrapper
+            .main-slider__item.item-main-slider.swiper-slide
+              .item-main-slider__content
+                .item-main-slider__container._container 
+                  .title
+                    .title__item Exclusive only
+                    .title__main.title__main_w.title__main_regular Lots for auction and free sale
+                  .item-main-slider__text We gather an exclusive audience and exclusive lots, provide a convenient and automated service for buying, selling, and auctioning lots.
+                  a.item-main-slider__btn.btn(href='#')
+                    span.btn__body
+                      span Join
+              .item-main-slider__bg._ibg
+                img(src='img/main_slider/layer_3.png')
+            .main-slider__item.item-main-slider.swiper-slide
+              .item-main-slider__content
+                .item-main-slider__container._container 
+                  .title
+                    .title__item Exclusive only
+                    .title__main.title__main_w.title__main_regular Lots for auction and free sale
+                  .item-main-slider__text We provide personal accounts, provide related services with the sale of rare and expensive items.
+                  a.item-main-slider__btn.btn(href='#')
+                    span.btn__body
+                      span Join
+              .item-main-slider__bg._ibg
+                img(src='img/main_slider/layer_4.png')
+          .main-slider__control.control-main-slider
+            .control-main-slider__arrow.control-main-slider__arrow_prev
+            .control-main-slider__decor
+              img(src='img/icons/nav_1.png')
+            .control-main-slider__arrow.control-main-slider__arrow_next
       include html/footer.pug
       script(src='./js/app.min.js')

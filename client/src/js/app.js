@@ -1,1 +1,2 @@
-import './script.js'
+import './script.js';
+import './sliders.js';

@@ -28,16 +28,6 @@ if(iconMenu != null){
     })
 }
 
-/*const iconMenu = document.querySelector('.icon-menu');
-const menuBody = document.querySelector('.menu__body');
-if(iconMenu){
-        iconMenu.addEventListener("click", function(e){
-        document.body.classList.toggle('_lock');
-        iconMenu.classList.toggle('_active');
-        menuBody.classList.toggle('_active');
-    })
-}*/
-
 /*user-header__icon*/
 let user_icon = document.querySelector(".user-header__icon");
 user_icon.addEventListener("click", function(){
@@ -195,8 +185,18 @@ class DynamicAdapt {
       }
     }
   }
+//call and settings change the order of elements
+//max - Desktop First, min - Mobile First.
+const da = new DynamicAdapt("max");
+da.init();
 
-  //call and settings change the order of elements
-  //max - Desktop First, min - Mobile First.
-  const da = new DynamicAdapt("max");
-  da.init();
+/*adaptive img*/
+function ibg(){
+  let ibg=document.querySelectorAll("._ibg");
+  for (var i = 0; i < ibg.length; i++){
+    if(ibg[i].querySelector('img')){
+    ibg[i].style.backgroundImage = 'url('+ibg[i].querySelector('img').getAttribute('src')+')';
+    }
+  }
+}
+ibg();
