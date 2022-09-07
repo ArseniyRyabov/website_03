@@ -1,5 +1,5 @@
 @use "sass:math";
-
+/*mixins*/
 @import "mixins.scss";
 @mixin anim($time, $delay){
   -moz-transition: all $time ease $delay;
@@ -100,22 +100,18 @@ img{vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 a:active,a:hover,a:visited,a{text-decoration: none;}
 a{-webkit-tap-highlight-color: transparent;}
-//@import "swiper-bundle.min.css";
-@import "swiper.scss";
 body{
   font-family: $fontfamily;
   font-size: 14px;
-    &._lock{
-      overflow: hidden;
-      @media(max-width: $md3){
-      }
-    }
+  &._lock{overflow: hidden;
+    @media(max-width: $md3){}
+  }
 }
 
 /*default font*/
 $fontfamily: "PT Sans";
 
-/*Styles*/
+/*wrapper*/
 .wrapper{
   width: 100%;
   min-height: 100%;
@@ -148,6 +144,7 @@ $fontfamily: "PT Sans";
 }
 
 /*import*/
+@import "swiper.scss";
 @import 'header.scss';
 @import 'footer.scss';
 @import 'home.scss';
@@ -156,7 +153,7 @@ $fontfamily: "PT Sans";
   flex: 1 1 auto;
 }
 
-/*main*/
+/*block main-slider*/
 .main-slider{
   position: relative;
   .swiper-wrapper{
@@ -199,8 +196,14 @@ $fontfamily: "PT Sans";
   &__content{
     position: relative;
     z-index: 2;
+    height: 100%;
   }
-  &__container{}
+  &__container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   &__bg{
     position: absolute;
     width: 100%;
@@ -213,6 +216,7 @@ $fontfamily: "PT Sans";
     margin: 25px auto 0px auto;
     color: #fff;
     font-size: 15px;
+    flex: 1 1 auto;
     line-height: calc(25/15);
   }
   &__btn{
@@ -320,6 +324,7 @@ $fontfamily: "PT Sans";
   }
 }
 .title{
+  text-align: center;
   &__item{
     font-family: "ceremonious";
     color: #bb9c66;
@@ -345,3 +350,26 @@ $fontfamily: "PT Sans";
   }
 }
 
+/*block lots*/
+.lots{
+  padding: 85px 0px 63px 0px;
+  &__container{}
+  &__header{}
+  &__slider{}
+}
+.block-header{
+  &__title{
+    margin: 0px 0px 20px 0px;
+  }
+  &__decor{}
+}
+.block-decor{
+  display: flex;
+  &__items{
+    flex: 1 1 auto;
+  }
+  &__icon{
+    text-align: center;
+    flex: 0 0 150px;
+  }
+}

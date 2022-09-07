@@ -30,9 +30,14 @@ if(iconMenu != null){
 
 /*user-header__icon*/
 let user_icon = document.querySelector(".user-header__icon");
-user_icon.addEventListener("click", function(){
-    let user_menu = document.querySelector('.user-header__menu');
-    user_menu.classList.toggle('_active');
+let user_menu = document.querySelector('.user-header__menu');
+user_icon.addEventListener("click", function(e){
+  user_menu.classList.toggle('_active');
+});
+document.documentElement.addEventListener("click", function(e){
+  if(!e.target.closest('.user-header')){
+    user_menu.classList.remove('_active')
+  }
 });
 
 /*scrolling when clicked*/
@@ -59,14 +64,6 @@ if(menuLinks.length > 0){
         }
     }
 }
-
-/*close user-header__menu*/
-document.documentElement.addEventListener("click", function(e){
-    if(!e.target.closest('.user-header')){
-        let user_menu = document.querySelector('.user-header__menu');
-        user_menu.classList.remove('_active')
-    }
-});
 
 /*change the order of elements*/
 class DynamicAdapt {
