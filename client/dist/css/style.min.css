@@ -306,7 +306,7 @@ template {
   font-style: normal;
 }
 /*variables*/
-/*Reset*/
+/*reset*/
 * {
   padding: 0;
   margin: 0;
@@ -413,28 +413,22 @@ body._lock {
   display: flex;
   position: relative;
 }
-/*.swiper-vertical {
-	.swiper-wrapper {
-		flex-direction: column;
-	}
+.swiper-vertical .swiper-wrapper {
+  flex-direction: column;
 }
-/*.swiper-autoheight {
-	.swiper-wrapper {
-		align-items: flex-start;
-	}
-}*/
+.swiper-autoheight .swiper-wrapper {
+  align-items: flex-start;
+}
 .swiper-initialized .swiper-slide {
   flex-shrink: 0;
 }
-/*.swiper-android {
-	.swiper-slide,
-	.swiper-wrapper {
-		transform: translate3d(0px, 0, 0);
-	}
+.swiper-android .swiper-slide,
+.swiper-android .swiper-wrapper {
+  transform: translate3d(0px, 0, 0);
 }
-/*.swiper-button-lock {
-	display: none !important;
-}*/
+.swiper-button-lock {
+  display: none !important;
+}
 .header {
   background-color: #1c242a;
   position: relative;
@@ -885,11 +879,64 @@ body._lock {
 }
 .block-decor {
   display: flex;
+  align-items: center;
 }
 .block-decor__items {
   flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+}
+.block-decor__items:before {
+  content: "";
+  height: 1px;
+  flex: 1 1 auto;
+  background-color: #bb9c66;
+}
+.block-decor__items:after {
+  content: "";
+  height: 18px;
+  flex: 0 0 18px;
+  border: 1px solid #bb9c66;
+  transform: rotate(-45deg);
+  margin: 0px 5px 0px 5px;
+}
+.block-decor__items span {
+  display: flex;
+  align-items: center;
+  margin: 0px 5px;
+}
+.block-decor__items span:before {
+  content: "";
+  height: 10px;
+  width: 10px;
+  flex: 0 0 10px;
+  border-radius: 50%;
+  border: 1px solid #bb9c66;
+  margin: 0px 5px;
+}
+.block-decor__items span:after {
+  content: "";
+  flex: 0 0 10.8px;
+  width: 10.8px;
+  height: 10.8px;
+  border: 1px solid #bb9c66;
+  transform: rotate(-45deg);
+}
+.block-decor__items:last-child {
+  flex-direction: row-reverse;
+}
+.block-decor__items:last-child span {
+  flex-direction: row-reverse;
 }
 .block-decor__icon {
   text-align: center;
-  flex: 0 0 150px;
+  flex: 0 0 145px;
+  /*img{
+    max-width: 70px;
+  }*/
+}
+@media (max-width: 767.98px) {
+  .block-decor__icon {
+    flex: 0 0 95px;
+  }
 }
