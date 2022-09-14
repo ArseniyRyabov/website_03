@@ -12,9 +12,9 @@ html(lang="en")
     .wrapper
       include html/header.pug
       main.page
-        .main-slider.swiper
-          .main-slider__body.swiper-wrapper
-            .main-slider__item.item-main-slider.swiper-slide
+        .main-slider
+          .main-slider__body._swiper
+            .main-slider__item.item-main-slider
               .item-main-slider__content
                 .item-main-slider__container._container 
                   .title
@@ -26,7 +26,7 @@ html(lang="en")
                       span Join
               .item-main-slider__bg._ibg
                 img(src='img/main_slider/layer_3.png')
-            .main-slider__item.item-main-slider.swiper-slide
+            .main-slider__item.item-main-slider
               .item-main-slider__content
                 .item-main-slider__container._container 
                   .title
@@ -56,6 +56,92 @@ html(lang="en")
                   img(src='img/block-header/watchIcon.png')
                 .block-decor__items
                   span
-            .lots__slider
+            .lots__slider.slider-lots
+              .slider-lots__body._swiper
+                .slider-lots__slide
+                  .lot
+                    .lot__header
+                      a.lot__image._ibg(href='#')
+                        img(src='img/lots/01.png')
+                      .lot__timer.timer-lot 
+                        .timer-lot__icon
+                          img(src='img/icons/timer.png')
+                        .timer-lot__item 3:21:45:37
+                    a.lot__title(href='#') Arnold & Son Worldtimer discovery of antarctica
+                    .lot__info.info-lot
+                      .info-lot__statistic
+                        .info-lot__icon 
+                          img(src='img/icons/sl-eye.png')
+                        .info-lot__value 1 098
+                      .info-lot__current-bet.current-bet-info-lot
+                        .current-bet-info-lot__label Current bid
+                        .current-bet-info-lot__value 18 999 203
+                        .current-bet-info-lot__currency $
+                      .info-lot__statistic
+                        .info-lot__icon 
+                          img(src='img/icons/sl-palm.png')
+                        .info-lot__value 75
+                    a.lot__btn.btn.btn_big(href='#')
+                      span.btn__body
+                        span Raise the bid
+                .slider-lots__slide
+                  .lot
+                    .lot__header
+                      a.lot__image._ibg(href='#')
+                        img(src='img/lots/02.png')
+                      .lot__timer.timer-lot 
+                        .timer-lot__icon
+                          img(src='img/icons/timer.png')
+                        .timer-lot__item 3:21:45:37
+                    a.lot__title(href='#') Arnold & Son Worldtimer discovery of antarctica
+                    .lot__info.info-lot
+                      .info-lot__statistic
+                        .info-lot__icon 
+                          img(src='img/icons/sl-eye.png')
+                        .info-lot__value 1 098
+                      .info-lot__current-bet.current-bet-info-lot
+                        .current-bet-info-lot__label Current bid
+                        .current-bet-info-lot__value 18 999 203
+                        .current-bet-info-lot__currency $
+                      .info-lot__statistic
+                        .info-lot__icon 
+                          img(src='img/icons/sl-palm.png')
+                        .info-lot__value 75
+                    a.lot__btn.btn.btn_big(href='#')
+                      span.btn__body
+                        span Raise the bid
+                .slider-lots__slide
+                  .lot
+                    .lot__header
+                      a.lot__image._ibg(href='#')
+                        img(src='img/lots/03.png')
+                      .lot__timer.timer-lot 
+                        .timer-lot__icon
+                          img(src='img/icons/timer.png')
+                        .timer-lot__item 3:21:45:37
+                    a.lot__title(href='#') Arnold & Son Worldtimer discovery of antarctica
+                    .lot__info.info-lot
+                      .info-lot__statistic
+                        .info-lot__icon 
+                          img(src='img/icons/sl-eye.png')
+                        .info-lot__value 1 098
+                      .info-lot__current-bet.current-bet-info-lot
+                        .current-bet-info-lot__label Current bid
+                        .current-bet-info-lot__value 18 999 203
+                        .current-bet-info-lot__currency $
+                      .info-lot__statistic
+                        .info-lot__icon 
+                          img(src='img/icons/sl-palm.png')
+                        .info-lot__value 75
+                    a.lot__btn.btn.btn_big(href='#')
+                      span.btn__body
+                        span Raise the bid
+              .slider-lots__control.control-slider-lots
+                .control-slider-lots__arrow.control-slider-lots__arrow_prev
+                  span
+                a.control-slider-lots__link(href='#') All lots
+                .control-slider-lots__arrow.control-slider-lots__arrow_next
+                  span
+                
       include html/footer.pug
       script(src='./js/app.min.js')
