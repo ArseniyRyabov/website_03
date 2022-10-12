@@ -296,7 +296,7 @@ $fontfamily: "PT Sans";
       text-transform: uppercase;
       justify-content: center;
       align-items: center;
-      display: inline-flex;
+      display: flex;
       padding: 0px 50px;
       position: relative;
       &:after{
@@ -318,6 +318,7 @@ $fontfamily: "PT Sans";
       color: #000;
       font-weight: 500;
       letter-spacing: 0px;
+      padding: 0px 10px;
     }
   }
   @media(min-width: 992px){
@@ -438,8 +439,21 @@ $fontfamily: "PT Sans";
   }
 }
 .slider-lots{
-  &__body{}
-  &__slide{}
+  &__body{
+    margin: 0px -50px 50px;
+    .swiper-wrapper{
+      align-items: stretch;
+    }
+    @media(max-width: 975px){
+      margin: 0px -15px 50px;
+    }
+  }
+  &__slide{
+    padding: 0px 50px;
+    @media(max-width: 975px){
+      padding: 0px 15px;
+    }
+  }
   &__control{}
 }
 .control-slider-lots{
@@ -450,11 +464,16 @@ $fontfamily: "PT Sans";
     cursor: pointer;
     align-items: center;
     display: flex;
+    justify-content: flex-end;
     span{
-      background: url('../img/icons/sl-arrow.png') 0 0 no-repeat;
+      background: url('../img/icons/sl-arrow.png') left no-repeat;
       width: 108px;
       height: 35px;
+      overflow: hidden;
       flex: 0 0 108px;
+      @media(max-width: 450px){
+        flex: 0 0 50px;
+      }
     }
     &:after{
       content: "";
@@ -488,6 +507,10 @@ $fontfamily: "PT Sans";
   }
 }
 .lot{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   &__header{
     text-align: center;
     margin: 0px 0px 30px 0px;
@@ -495,7 +518,9 @@ $fontfamily: "PT Sans";
   }
   &__image{
     display: block;
-    height: 250px;
+    //height: 250px;
+    padding: 0px 0px 98% 0px;
+    border: 3px solid #bb9c66
   }
   &__timer{}
   &__title{
@@ -504,10 +529,24 @@ $fontfamily: "PT Sans";
     font-family: 'PFDin';
     color: #000;
     text-transform: uppercase;
-    line-height: calc(25px/21);
+    line-height: calc(25px/21px);
+    flex: 1 1 auto;
+    position: relative;
+    z-index: 2;
+    margin: 0px 0px calc(27px / 21px * 1em) 0px;
+    @media(max-width: 975px){
+      font-size: 18px;
+    }
+    @media(min-width: 992px){
+      &:hover{
+        text-decoration: underline;
+      }
+    }
   }
   &__info{}
-  &__btn{}
+  &__btn{
+    margin: 0px 25px;
+  }
 }
 .timer-lot{
   transform: translate(-50%, 50%);
@@ -544,13 +583,81 @@ $fontfamily: "PT Sans";
   }
 }
 .info-lot{
-  &__label{}
-  &__value{}
-  &__currency{}
+  display: flex;
+  justify-content: center;
+  margin: 0px 0px 35px 0px;
+  &__statistic{
+    flex: 0 0 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__icon{
+    width: calc(25px * 0.72);
+    height: calc(25px * 0.72);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0px 0px 10px 0px;
+    img{
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &:after{
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform: rotate(-45deg);
+      background-color: #1c242a;
+    }
+  }
+  &__value{
+    font-size: 14px;
+    border-bottom: 1px solid #bb9c66;
+    padding: 0px 0px 5px 0px;    
+  }
+  &__current-bet{
+    flex: 1 1 auto;
+    @media(max-width: 975px){
+      flex: 0 0 auto;
+    }
+  }
 }
 .current-bet-info-lot{
-  &__statistic{}
-  &__icon{}
-  &__value{}
-  &__current-bet{}
+  padding: 0px 5px;
+  position: relative;
+  @media(max-width: 975px){
+    padding: 0px 10px;
+  }
+  &:after{
+    content: "";
+    position: absolute;
+    border: 1px solid #bb9c66;
+    width: 72px;
+    height: 72px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  div{
+    position: relative;
+    z-index: 2;
+  }
+  &__label{
+    margin: 0px 0px 5px 0px;
+  }
+  &__value{
+    font-family: "BravoRGRegular";
+    font-size: 50px;
+    white-space: nowrap;
+    @media(max-width: 975px){
+      font-size: 35px;
+    }
+  }
+  &__currency{}
 }

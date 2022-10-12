@@ -88,27 +88,16 @@ let main_slider = new Swiper('.main-slider__body', {
 		nextEl: '.control-main-slider__arrow_next',
 		prevEl: '.control-main-slider__arrow_prev',
 	},
-	/*
+	
 	breakpoints: {
 		320: {
-			slidesPerView: 1,
-			spaceBetween: 0,
 			autoHeight: true,
 		},
 		768: {
-			slidesPerView: 2,
-			spaceBetween: 20,
-		},
-		992: {
-			slidesPerView: 3,
-			spaceBetween: 20,
-		},
-		1268: {
-			slidesPerView: 4,
-			spaceBetween: 30,
+			autoHeight: false,
 		},
 	},
-	*/
+	
 	on: {
 		lazyImageReady: function () {
 			ibg();
@@ -149,6 +138,17 @@ let slider_lots = new Swiper('.slider-lots__body', {
 	navigation: {
 		nextEl: '.control-slider-lots__arrow_next',
 		prevEl: '.control-slider-lots__arrow_prev',
+	},
+	breakpoints: {
+		320: {
+			slidesPerView: 1,
+		},
+		550: {
+			slidesPerView: 2,
+		},
+		768: {
+			slidesPerView: 3,
+		},
 	},
 	/*
 	breakpoints: {

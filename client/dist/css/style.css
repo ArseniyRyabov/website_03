@@ -822,7 +822,7 @@ body._lock {
   text-transform: uppercase;
   justify-content: center;
   align-items: center;
-  display: inline-flex;
+  display: flex;
   padding: 0px 50px;
   position: relative;
 }
@@ -842,6 +842,7 @@ body._lock {
   color: #000;
   font-weight: 500;
   letter-spacing: 0px;
+  padding: 0px 10px;
 }
 @media (min-width: 992px) {
   .btn:hover .btn__body span:after {
@@ -953,6 +954,25 @@ body._lock {
     flex: 0 0 95px;
   }
 }
+.slider-lots__body {
+  margin: 0px -50px 50px;
+}
+.slider-lots__body .swiper-wrapper {
+  align-items: stretch;
+}
+@media (max-width: 975px) {
+  .slider-lots__body {
+    margin: 0px -15px 50px;
+  }
+}
+.slider-lots__slide {
+  padding: 0px 50px;
+}
+@media (max-width: 975px) {
+  .slider-lots__slide {
+    padding: 0px 15px;
+  }
+}
 .control-slider-lots {
   display: flex;
   justify-content: center;
@@ -962,12 +982,19 @@ body._lock {
   cursor: pointer;
   align-items: center;
   display: flex;
+  justify-content: flex-end;
 }
 .control-slider-lots__arrow span {
-  background: url("../img/icons/sl-arrow.png") 0 0 no-repeat;
+  background: url("../img/icons/sl-arrow.png") left no-repeat;
   width: 108px;
   height: 35px;
+  overflow: hidden;
   flex: 0 0 108px;
+}
+@media (max-width: 450px) {
+  .control-slider-lots__arrow span {
+    flex: 0 0 50px;
+  }
 }
 .control-slider-lots__arrow:after {
   content: "";
@@ -998,6 +1025,12 @@ body._lock {
   font-family: "PFDin";
   margin: 0px 20px;
 }
+.lot {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 .lot__header {
   text-align: center;
   margin: 0px 0px 30px 0px;
@@ -1005,7 +1038,8 @@ body._lock {
 }
 .lot__image {
   display: block;
-  height: 250px;
+  padding: 0px 0px 98% 0px;
+  border: 3px solid #bb9c66;
 }
 .lot__title {
   font-size: 21px;
@@ -1013,7 +1047,24 @@ body._lock {
   font-family: "PFDin";
   color: #000;
   text-transform: uppercase;
-  line-height: 1.1904761905px;
+  line-height: 1.1904761905;
+  flex: 1 1 auto;
+  position: relative;
+  z-index: 2;
+  margin: 0px 0px 1.2857142857em 0px;
+}
+@media (max-width: 975px) {
+  .lot__title {
+    font-size: 18px;
+  }
+}
+@media (min-width: 992px) {
+  .lot__title:hover {
+    text-decoration: underline;
+  }
+}
+.lot__btn {
+  margin: 0px 25px;
 }
 .timer-lot {
   transform: translate(-50%, 50%);
@@ -1048,4 +1099,88 @@ body._lock {
 .timer-lot__item {
   font-size: 18px;
   font-family: "PT Sans Narrow";
+}
+.info-lot {
+  display: flex;
+  justify-content: center;
+  margin: 0px 0px 35px 0px;
+}
+.info-lot__statistic {
+  flex: 0 0 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.info-lot__icon {
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 0px 0px 10px 0px;
+}
+.info-lot__icon img {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.info-lot__icon:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-45deg);
+  background-color: #1c242a;
+}
+.info-lot__value {
+  font-size: 14px;
+  border-bottom: 1px solid #bb9c66;
+  padding: 0px 0px 5px 0px;
+}
+.info-lot__current-bet {
+  flex: 1 1 auto;
+}
+@media (max-width: 975px) {
+  .info-lot__current-bet {
+    flex: 0 0 auto;
+  }
+}
+.current-bet-info-lot {
+  padding: 0px 5px;
+  position: relative;
+}
+@media (max-width: 975px) {
+  .current-bet-info-lot {
+    padding: 0px 10px;
+  }
+}
+.current-bet-info-lot:after {
+  content: "";
+  position: absolute;
+  border: 1px solid #bb9c66;
+  width: 72px;
+  height: 72px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.current-bet-info-lot div {
+  position: relative;
+  z-index: 2;
+}
+.current-bet-info-lot__label {
+  margin: 0px 0px 5px 0px;
+}
+.current-bet-info-lot__value {
+  font-family: "BravoRGRegular";
+  font-size: 50px;
+  white-space: nowrap;
+}
+@media (max-width: 975px) {
+  .current-bet-info-lot__value {
+    font-size: 35px;
+  }
 }

@@ -1,7 +1,7 @@
 doctype html
 html(lang="en")
   head
-    title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    title Auction site
     meta(http-equiv="Content-type" content="text/html;charset=UTF-8")
     meta(name="format-detection" content="telephone=no")
     meta(http-equiv="X-UA-Conpatiple" content="IE=edge")
@@ -93,20 +93,20 @@ html(lang="en")
                         .timer-lot__icon
                           img(src='img/icons/timer.png')
                         .timer-lot__item 3:21:45:37
-                    a.lot__title(href='#') Arnold & Son Worldtimer discovery of antarctica
+                    a.lot__title(href='#') Chateau Lafite 1949
                     .lot__info.info-lot
                       .info-lot__statistic
                         .info-lot__icon 
                           img(src='img/icons/sl-eye.png')
-                        .info-lot__value 1 098
+                        .info-lot__value 753
                       .info-lot__current-bet.current-bet-info-lot
                         .current-bet-info-lot__label Current bid
-                        .current-bet-info-lot__value 18 999 203
+                        .current-bet-info-lot__value 245 203
                         .current-bet-info-lot__currency $
                       .info-lot__statistic
                         .info-lot__icon 
                           img(src='img/icons/sl-palm.png')
-                        .info-lot__value 75
+                        .info-lot__value 6
                     a.lot__btn.btn.btn_big(href='#')
                       span.btn__body
                         span Raise the bid
@@ -119,20 +119,46 @@ html(lang="en")
                         .timer-lot__icon
                           img(src='img/icons/timer.png')
                         .timer-lot__item 3:21:45:37
-                    a.lot__title(href='#') Arnold & Son Worldtimer discovery of antarctica
+                    a.lot__title(href='#') Rolex Paul Newman Daytona
                     .lot__info.info-lot
                       .info-lot__statistic
                         .info-lot__icon 
                           img(src='img/icons/sl-eye.png')
-                        .info-lot__value 1 098
+                        .info-lot__value 2 098
                       .info-lot__current-bet.current-bet-info-lot
                         .current-bet-info-lot__label Current bid
-                        .current-bet-info-lot__value 18 999 203
+                        .current-bet-info-lot__value 3 999 203
                         .current-bet-info-lot__currency $
                       .info-lot__statistic
                         .info-lot__icon 
                           img(src='img/icons/sl-palm.png')
-                        .info-lot__value 75
+                        .info-lot__value 95
+                    a.lot__btn.btn.btn_big(href='#')
+                      span.btn__body
+                        span Raise the bid
+                .slider-lots__slide
+                  .lot
+                    .lot__header
+                      a.lot__image._ibg(href='#')
+                        img(src='img/lots/04.png')
+                      .lot__timer.timer-lot 
+                        .timer-lot__icon
+                          img(src='img/icons/timer.png')
+                        .timer-lot__item 3:21:45:37
+                    a.lot__title(href='#') Handmade bracelet
+                    .lot__info.info-lot
+                      .info-lot__statistic
+                        .info-lot__icon 
+                          img(src='img/icons/sl-eye.png')
+                        .info-lot__value 1 563
+                      .info-lot__current-bet.current-bet-info-lot
+                        .current-bet-info-lot__label Current bid
+                        .current-bet-info-lot__value 1 999 999
+                        .current-bet-info-lot__currency $
+                      .info-lot__statistic
+                        .info-lot__icon 
+                          img(src='img/icons/sl-palm.png')
+                        .info-lot__value 52
                     a.lot__btn.btn.btn_big(href='#')
                       span.btn__body
                         span Raise the bid
@@ -142,6 +168,15 @@ html(lang="en")
                 a.control-slider-lots__link(href='#') All lots
                 .control-slider-lots__arrow.control-slider-lots__arrow_next
                   span
-                
+        .categories
+          .categories__container._container
+            .categories__row
+              .categories__column
+                a.categories__item.item(href='#')
+                  .item__icon
+                    img(src='img/categories/icons/01.png')
+                  .item__title Watch
+                  .item__bg
+                    img(src='img/categories/01.png')
       include html/footer.pug
       script(src='./js/app.min.js')
